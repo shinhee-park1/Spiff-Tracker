@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Spiff Tracker</title>
+
+     <!-- jQuery -->
+     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+     <!-- Bootstrap -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+
+     <link rel="stylesheet" href="./spiff-tracker.css">
+
+     <!-- Tableau Extensions API Library  -->
+     <!-- library is in the /lib directory -->
+     <script src="../../lib/tableau.extensions.1.latest.js"></script>
+
+     <!-- Your JavaScript code that uses the Extensions API goes here -->
+     <script src="./spiff-tracker.js"></script>
+
+     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+     </head>
+     <body>
+
+       <div class="alert alert-success alert-dismissible submit-message" style="width: 50%; margin: 0 auto; display:none;" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Spiff</strong> has been submitted!
+      </div>
+
+      <div class="alert alert-danger alert-dismissible error-message" style="width: 50%; margin: 0 auto; display:none;" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Spiff</strong> has not been submitted!
+      </div>
+  
+      <div class="container">
+        <div class="top-title" style="display:flex;">
+        <h4 id="title" style="padding-top: 20px;">Add New Spiff</h4>
+          <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_stozcwgt.json"  background="transparent"  speed="1"  style="width: 60px; height: 60px;"  loop  autoplay></lottie-player>
+        </div>
+        <form id="spiff-form">
+          <label>Spiff Recipient</label>
+          <select id="ca-name" onchange="getCAInfo()" class="form-control" placeholder="CA Name">
+            <option>Select Recipient Name</option>
+          </select>
+
+          <label>DIM Employee ID</label>
+          <input disabled id="dim-employee-id" class="form-control" placeholder="DIM Employee ID">
+
+          <label>Date</label>
+          <input required id="record-date" class="form-control" placeholder="ex: 03/07/2023">
+
+          <label>Manager Name</label>
+          <select id="manager-name" class="form-control" placeholder="Manager Name">
+            <option>Select Manager Name</option>
+          </select>
+
+          <label>Amount</label>
+          <input required id="amount" class="form-control" placeholder="ex: 3000">
+
+          <label>Type</label>
+          <input id="type" class="form-control">
+          
+          <label>Reason for Spiff</label>
+          <input id="reason-for-spiff" class="form-control">
+          <label>
+            Validated
+          </label>
+          <select id="validated" class="form-control">
+            <option value="True">True</option>
+            <option value="False">False</option>
+          </select>
+          <label>
+            Paid
+          </label>
+          <select id="paid" class="form-control">
+            <option value="True">True</option>
+            <option value="False">False</option>
+          </select>
+        </form>
+        <button class="btn btn-primary" onclick="submitForm()" style="margin-top: 10px;">Submit</button>
+      </div>
+
+     </body>
+ </html>
